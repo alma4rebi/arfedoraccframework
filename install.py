@@ -19,28 +19,17 @@
 #  MA 02110-1301, USA.
 #  
 #
-import os
-from gi.repository import GLib
+import os 
+import subprocess
+import sys
+from arfedoraccframework.appinformation import appname, homedata
 
 
-authors_ = ["Youssef Sourani <youssef.m.sourani@gmail.com>"]
-version_ = "0.1beta"
-copyright_ ="Copyright © 2017 Youssef Sourani"
-comments_ = "ArControlCenter"
-website_ = "https://arfedora.blogspot.com"
-icon_ =  ""
-translators_ = ("translator-credit")
-appname = "arcontrolcenter"
-appwindowtitle       = "ArControlCenter"
-appid="org.github.yucefsourani.ArControlCenter"
-mainbuttonsizewidth  = 100
-mainbuttonsizeheight = 100
-maxwidgetinrow       = 5
-mainbuttonbold       = False
-
-
-#dont change this
-homeconfig = GLib.get_user_config_dir()+"/"+appname
-homedata   = GLib.get_user_data_dir()+"/"+appname
 os.makedirs(homedata,exist_ok=True)
-os.makedirs(homeconfig,exist_ok=True)
+site_packages = "/usr/lib/python"+str(sys.version_info.major)+"."+str(sys.version_info.minor)+"/site-packages"
+subprocess.call("cp -r plugins {}".format(homedata),shell=True)
+subprocess.call("cp -r icons {}".format(homedata),shell=True)
+subprocess.call("sudo cp -r arfedoraccframework {}".format(site_packages),shell=True)
+subprocess.call("chmod 755  arfedoracontrolcenter.py",shell=True)
+subprocess.call("sudo cp -r arfedoracontrolcenter.py /usr/bin/arfedoracontrolcenter",shell=True)
+subprocess.call("sudo chmod 755  /usr/bin/arfedoracontrolcenter",shell=True)
