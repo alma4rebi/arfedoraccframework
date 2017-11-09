@@ -19,14 +19,15 @@
 #  MA 02110-1301, USA.
 #  
 #
-import os 
+import os
+import site
 import subprocess
 import sys
 from arfedoraccframework.appinformation import appname, homedata
 
 
 os.makedirs(homedata,exist_ok=True)
-site_packages = "/usr/lib/python"+str(sys.version_info.major)+"."+str(sys.version_info.minor)+"/site-packages"
+site_packages = site.getsitepackages()[0]
 subprocess.call("cp -r plugins {}".format(homedata),shell=True)
 subprocess.call("cp -r icons {}".format(homedata),shell=True)
 subprocess.call("sudo cp -r arfedoraccframework {}".format(site_packages),shell=True)
