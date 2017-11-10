@@ -20,21 +20,40 @@
 #  
 #  
 import os
-from arfedoraccframework.appinformation import  homeconfig, appname
+from arfedoraccframework.appinformation import  homeconfig, appname, homedata
 import time
-
+import subprocess
 
 arch = os.uname().machine
 distro_desktop = os.getenv("XDG_CURRENT_DESKTOP",False)
 
+
+def get_icon_location(iconname):
+    iconlocation = [l for l in [os.path.join(homedata+"/icons",iconname),os.path.join("/usr/share/{}/icons".format(appname),iconname)] if os.path.isfile(l)]
+    if len(iconlocation)!=0:
+        return iconlocation[0]
+    return False
+     
 def get_file_to_run():
     try:
-        filetorun = os.path.join(homeconfig,appname+str(int(time.time())))
+        filetorun = os.path.join("/tmp",appname+str(int(time.time())))
     except Exception as e:
         print(e)
         return False
     return filetorun
 
+def write_file_to_run(commands):
+    try:
+        filetorun = get_file_to_run()
+        with open(filetorun,"w") as mf:
+            for command in commands:
+                mf.write(command+"\n")
+        subprocess.call("chmod 755 "+filetorun,shell=True)
+    except Exception as e :
+        print(e)
+        return False
+    return filetorun
+    
 def get_distro_name():
     result=""
     if not os.path.isfile("/etc/os-release"):

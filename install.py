@@ -23,13 +23,21 @@ import os
 import site
 import subprocess
 import sys
+import platform
 from arfedoraccframework.appinformation import appname, homedata
 
 
-os.makedirs(homedata,exist_ok=True)
-site_packages = site.getsitepackages()[0]
-subprocess.call("cp -r plugins {}".format(homedata),shell=True)
-subprocess.call("cp -r icons {}".format(homedata),shell=True)
+arch=platform.machine()
+tocheck = "/usr/lib64/" if arch=="x86_64" else "/usr/lib/"
+site_packages = [l for l in site.getsitepackages() if l.startswith(tocheck)][0]
+if os.getuid()!=0:
+    os.makedirs(homedata,exist_ok=True)
+    subprocess.call("cp -r plugins {}".format(homedata),shell=True)
+    subprocess.call("cp -r icons {}".format(homedata),shell=True)
+else:
+    os.makedirs("/usr/share/arfedoracontrolcenter",exist_ok=True)
+    subprocess.call("cp -r plugins /usr/share/arfedoracontrolcenter",shell=True)
+    subprocess.call("cp -r icons /usr/share/arfedoracontrolcenter",shell=True)
 subprocess.call("sudo cp -r arfedoraccframework {}".format(site_packages),shell=True)
 subprocess.call("chmod 755  arfedoracontrolcenter.py",shell=True)
 subprocess.call("sudo cp -r arfedoracontrolcenter.py /usr/bin/arfedoracontrolcenter",shell=True)
