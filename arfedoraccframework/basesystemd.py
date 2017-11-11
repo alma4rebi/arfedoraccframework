@@ -108,7 +108,19 @@ class SystemDSystem(object):
                     result.setdefault(s,service[1])
         return result
         
-        
+    def get_all_service_timer_enabled_disabled_unit_files_dict(self):
+        result = {}
+        for service in self.__interface.ListUnitFiles():
+            try:
+                s = basename(service[0])
+                ss = service[1]
+                if ss=="disabled" or ss =="enabled"  :
+                    status = self.list_units_by_names([s])[0]
+                    if s.endswith(".service") or s.endswith(".timer"):
+                        result.setdefault(s,[ss,status])
+            except:
+                continue
+        return result
 
 class SystemDUser(object):
     def __init__(self):
@@ -194,3 +206,15 @@ class SystemDUser(object):
                     result.setdefault(s,service[1])
         return result
 
+    def get_all_service_timer_enabled_disabled_unit_files_dict(self):
+        result = {}
+        for service in self.__interface.ListUnitFiles():
+            try:
+                if service[1]=="disabled" or service[1]=="enabled":
+                    s = basename(service[0])
+                    status = self.list_units_by_names([s])[0]
+                    if s.endswith(".service") or s.endswith(".timer"):
+                        result.setdefault(s,[service[1],status])
+            except:
+                continue
+        return result
