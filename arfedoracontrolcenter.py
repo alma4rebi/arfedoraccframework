@@ -61,7 +61,7 @@ class AppWindow(Gtk.ApplicationWindow):
         super().__init__(*args, **kwargs)
         all_category = {}
         #self.set_border_width(10)
-        self.set_size_request(765, 610)
+        self.set_size_request(800, 610)
         #self.set_resizable(False)
         
         
@@ -171,7 +171,7 @@ class AppWindow(Gtk.ApplicationWindow):
                 bl = Gtk.Label(button_label)
             bl.set_line_wrap(True)
             bl.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
-            bl.set_max_width_chars(13)
+            bl.set_max_width_chars(14)
             bl.set_justify(Gtk.Justification.CENTER)
             if mainbuttontooltip:
                 b.set_tooltip_markup(mainbuttontooltip)

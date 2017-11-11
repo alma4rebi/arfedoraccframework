@@ -31,7 +31,7 @@ import time
 
 
 button_label         = "Repos Manager"
-button_image         = "Fedora_infinity.png"
+button_image         = "Antu_distributor-logo-fedora.svg.png"
 category             = "System"
 title                = "For Test"
 arch                 = ["all"]

@@ -34,7 +34,7 @@ import threading
 
 button_label         = "Fix Flash"
 button_image         = "vector_66_01-512.png"
-category             = "Utils"
+category             = "Utilities"
 title                = "For Test"
 arch                 = ["all"]
 distro_name          = ["all"]

@@ -53,7 +53,7 @@ class Plugin(BasePlugin):
         BasePlugin.__init__(self,parent=parent,boxparent=boxparent)
         mainvbox = Gtk.VBox(spacing=20)
         self._mainbox_.pack_start(mainvbox,False,False,0)
-
+        lock_ = False
         desktop=os.getenv("XDG_CURRENT_DESKTOP")
         if desktop=="":
             if os.getenv("DESKTOP_SESSION")=="/usr/share/xsessions/openbox":
@@ -69,66 +69,67 @@ class Plugin(BasePlugin):
                     "Openbox"    :["Openbox Manager Configuration",get_icon_location("Openbox-logo.png"),"/usr/bin/obconf"]
                     } 
         
-
-        if desktop in desktop_cc.keys():
-            self._mainbox_.set_border_width(100)
-            hbox1 = Gtk.HBox(spacing=10)
-            vbox1 = Gtk.VBox(spacing=20)
-            op = desktop_cc[desktop]
-            vheader = Gtk.VBox(spacing=3)
-            vbox1.pack_start(vheader,False,False,0)
-            label = Gtk.Label("<b>"+op[0]+"</b>",use_markup=True)
-            label.set_line_wrap(True)
-            label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
-            label.set_max_width_chars(13)
-            label.set_justify(Gtk.Justification.CENTER)
-            pixbuf=GdkPixbuf.Pixbuf.new_from_file_at_size(op[1],100,100)
-            image  = Gtk.Image.new_from_pixbuf(pixbuf)
-            vheader.pack_start(image,False,False,0)
-            vheader.pack_start(label,False,False,0)
-            bbox = Gtk.HBox()
-            button = Gtk.Button("Run")
-            #button.get_style_context().add_class("destructive-action")
-            button.set_size_request(150,40)
-            button.connect("clicked",self.on_button_clicked,op[2])
-            hseparator = Gtk.Separator()
-            hseparator.set_margin_top(30)
-            hseparator.set_margin_top(30)
-            bbox.pack_start(button,True,False,0)
-            vbox1.pack_start(bbox,False,False,0)
-            if os.path.isfile("/usr/bin/gnome-tweak-tool"):
-                i = get_icon_location("gnome_tweak_tool_22409.png")
-                vbox2 = Gtk.VBox(spacing=20)
-                vheader2 = Gtk.VBox(spacing=3)
-                vbox2.pack_start(vheader2,False,False,0)
-                label2 = Gtk.Label("<b>Gnome Tweak Tool</b>",use_markup=True)
-                label2.set_line_wrap(True)
-                label2.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
-                label2.set_max_width_chars(13)
-                pixbuf2=GdkPixbuf.Pixbuf.new_from_file_at_size(i,100,100)
-                image2  = Gtk.Image.new_from_pixbuf(pixbuf2)
-                vheader2.pack_start(image2,False,False,0)
-                vheader2.pack_start(label2,False,False,0)
-                bbox2 = Gtk.HBox()
-                button2 = Gtk.Button("Run")
-                #button2.get_style_context().add_class("destructive-action")
-                button2.set_size_request(150,40)
-                button2.connect("clicked",self.on_button_clicked,"/usr/bin/gnome-tweak-tool")
-                bbox2.pack_start(button2,True,False,0)
-                vbox2.pack_start(bbox2,False,False,0)
+        for k_ in desktop_cc.keys():
+            if desktop in k_:
+                lock_ = True
+                self._mainbox_.set_border_width(100)
+                hbox1 = Gtk.HBox(spacing=10)
+                vbox1 = Gtk.VBox(spacing=20)
+                op = desktop_cc[desktop]
+                vheader = Gtk.VBox(spacing=3)
+                vbox1.pack_start(vheader,False,False,0)
+                label = Gtk.Label("<b>"+op[0]+"</b>",use_markup=True)
+                label.set_line_wrap(True)
+                label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
+                label.set_max_width_chars(13)
+                label.set_justify(Gtk.Justification.CENTER)
+                pixbuf=GdkPixbuf.Pixbuf.new_from_file_at_size(op[1],100,100)
+                image  = Gtk.Image.new_from_pixbuf(pixbuf)
+                vheader.pack_start(image,False,False,0)
+                vheader.pack_start(label,False,False,0)
+                bbox = Gtk.HBox()
+                button = Gtk.Button("Run")
+                #button.get_style_context().add_class("destructive-action")
+                button.set_size_request(150,40)
+                button.connect("clicked",self.on_button_clicked,op[2])
+                hseparator = Gtk.Separator()
+                hseparator.set_margin_top(30)
+                hseparator.set_margin_top(30)
+                bbox.pack_start(button,True,False,0)
+                vbox1.pack_start(bbox,False,False,0)
+                if os.path.isfile("/usr/bin/gnome-tweak-tool") and "GNOME" in k_:
+                    i = get_icon_location("gnome_tweak_tool_22409.png")
+                    vbox2 = Gtk.VBox(spacing=20)
+                    vheader2 = Gtk.VBox(spacing=3)
+                    vbox2.pack_start(vheader2,False,False,0)
+                    label2 = Gtk.Label("<b>Gnome Tweak Tool</b>",use_markup=True)
+                    label2.set_line_wrap(True)
+                    label2.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
+                    label2.set_max_width_chars(13)
+                    pixbuf2=GdkPixbuf.Pixbuf.new_from_file_at_size(i,100,100)
+                    image2  = Gtk.Image.new_from_pixbuf(pixbuf2)
+                    vheader2.pack_start(image2,False,False,0)
+                    vheader2.pack_start(label2,False,False,0)
+                    bbox2 = Gtk.HBox()
+                    button2 = Gtk.Button("Run")
+                    #button2.get_style_context().add_class("destructive-action")
+                    button2.set_size_request(150,40)
+                    button2.connect("clicked",self.on_button_clicked,"/usr/bin/gnome-tweak-tool")
+                    bbox2.pack_start(button2,True,False,0)
+                    vbox2.pack_start(bbox2,False,False,0)
                 
-            hbox1.pack_start(vbox1,True,False,0)
-            if os.path.isfile("/usr/bin/gnome-tweak-tool"):
-                hbox1.pack_start(hseparator,True,False,0)
-                hbox1.pack_start(vbox2,True,False,0)
-                mainvbox.pack_start(hbox1,False,False,0)
-            else:
-                vseparator = Gtk.Separator()
-                vseparator.set_margin_top(10)
-                mainvbox.pack_start(hbox1,False,False,0)
-                mainvbox.pack_start(vseparator,False,False,0)
+                hbox1.pack_start(vbox1,True,False,0)
+                if os.path.isfile("/usr/bin/gnome-tweak-tool") and "GNOME" in k_:
+                    hbox1.pack_start(hseparator,True,False,0)
+                    hbox1.pack_start(vbox2,True,False,0)
+                    mainvbox.pack_start(hbox1,False,False,0)
+                else:
+                    vseparator = Gtk.Separator()
+                    vseparator.set_margin_top(10)
+                    mainvbox.pack_start(hbox1,False,False,0)
+                    mainvbox.pack_start(vseparator,False,False,0)
         
-        else:
+        if not lock_:
             self._mainbox_.set_border_width(5)
             lxde_cc=[ ["Customize Look and Feel","/usr/bin/lxappearance"] ,["Default Applications","/usr/bin/lxsession-default-apps"],["Desktop Session Settings","/usr/bin/lxsession-edit"] ,["Display Settings","/usr/bin/lxrandr"],["Windows Manager Configuration","/usr/bin/obconf"],["Input Device Preferences","/usr/bin/lxinput"]]
             lxde_logo = get_icon_location("cropped-lxde-icon.png")
