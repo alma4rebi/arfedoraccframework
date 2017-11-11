@@ -35,9 +35,9 @@ if os.getuid()!=0:
     subprocess.call("cp -r plugins {}".format(homedata),shell=True)
     subprocess.call("cp -r icons {}".format(homedata),shell=True)
 else:
-    os.makedirs("/usr/share/arfedoracontrolcenter",exist_ok=True)
-    subprocess.call("cp -r plugins /usr/share/arfedoracontrolcenter",shell=True)
-    subprocess.call("cp -r icons /usr/share/arfedoracontrolcenter",shell=True)
+    os.makedirs("/usr/share/"+appname,exist_ok=True)
+    subprocess.call("cp -r plugins /usr/share/"+appname,shell=True)
+    subprocess.call("cp -r icons /usr/share/"+appname,shell=True)
 subprocess.call("sudo cp -r arfedoraccframework {}".format(site_packages),shell=True)
 subprocess.call("chmod 755  arfedoracontrolcenter.py",shell=True)
 subprocess.call("sudo cp -r arfedoracontrolcenter.py /usr/bin/arfedoracontrolcenter",shell=True)
