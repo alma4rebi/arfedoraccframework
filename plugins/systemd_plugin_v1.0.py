@@ -117,7 +117,7 @@ class Plugin(BasePlugin):
         mainswitchvbox2_.pack_start(system_sthbox,False,False,0)
         
         if len(self.user_enabled_disabled_service.items())!=0:
-            userlabel = Gtk.Label("<b>Enable/Disable User Services</b>",use_markup=True)
+            userlabel = Gtk.Label("<b>User Services</b>",use_markup=True)
             uservseparator = Gtk.Separator()
             uservseparator.set_margin_top(30)
             self.mainvbox.pack_start(uservseparator,False,False,0)
@@ -159,7 +159,7 @@ class Plugin(BasePlugin):
             self.mainvbox.pack_start(mainhbox,False,False,0)
 
         if len(self.system_enabled_disabled_service.items())!=0:
-            systemlabel = Gtk.Label("<b>Enable/Disable System Services</b>",use_markup=True)
+            systemlabel = Gtk.Label("<b>System Services</b>",use_markup=True)
             systemvseparator = Gtk.Separator()
             systemvseparator.set_margin_top(30)
             self.mainvbox.pack_start(systemvseparator,False,False,0)
