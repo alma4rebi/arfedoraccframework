@@ -18,7 +18,7 @@
 #  Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #  MA 02110-1301, USA.
 #  
-#  TO DO Add Spinner set_sensitive back and refresh and run and force
+#
 import os
 import sys
 import subprocess

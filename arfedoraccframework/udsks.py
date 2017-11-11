@@ -71,7 +71,7 @@ def INIT():
     return result
     
     
-    
+
     
 def get_block_devices(bus):
     result  = []
