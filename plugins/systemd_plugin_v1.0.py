@@ -31,7 +31,7 @@ import arfedoraccframework.basesystemd as systemd
 import time
 
 
-button_label         = "Service Service"
+button_label         = "Service Manager"
 button_image         = "tux_images.png"
 category             = "System"
 title                = "For Test"
