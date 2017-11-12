@@ -29,19 +29,17 @@ from arfedoraccframework.baseutils import get_icon_location
 
 
 
-
-
-button_label         = "Environment Control Center"
-button_image         = "tools_settings_tool_preferences-512.png"
+button_label         = "Lxde Control Center"
+button_image         = "cropped-lxde-icon.png"
 category             = "System"
 title                = "For Test"
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Environment Control Center"
+mainbuttontooltip    = "Lxde Control Center"
 blockclose           = False
 if_true_skip         = False
-if_false_skip        = True
+if_false_skip        = all([ os.path.isfile("/usr/bin/lxappearance") ,os.path.isfile("/usr/bin/lxsession-default-apps"),os.path.isfile("/usr/bin/lxsession-edit" ),os.path.isfile("/usr/bin/lxrandr"),os.path.isfile("/usr/bin/lxinput")])
 if_one_true_skip     = [False]
 if_all_true_skip     = [True,False]
 priority             = 0
@@ -54,7 +52,7 @@ class Plugin(BasePlugin):
         mainvbox = Gtk.VBox(spacing=20)
         self._mainbox_.pack_start(mainvbox,False,False,0)
         lock_ = False
-        desktop=os.getenv("XDG_CURRENT_DESKTOP")
+        """desktop=os.getenv("XDG_CURRENT_DESKTOP")
         if desktop=="":
             if os.getenv("DESKTOP_SESSION")=="/usr/share/xsessions/openbox":
                 desktop = "OpenBox"
@@ -70,7 +68,7 @@ class Plugin(BasePlugin):
                     } 
         
         for k_ in desktop_cc.keys():
-            if desktop in k_:
+            if False:#skiped
                 lock_ = True
                 self._mainbox_.set_border_width(100)
                 hbox1 = Gtk.HBox(spacing=10)
@@ -127,7 +125,7 @@ class Plugin(BasePlugin):
                     vseparator = Gtk.Separator()
                     vseparator.set_margin_top(10)
                     mainvbox.pack_start(hbox1,False,False,0)
-                    mainvbox.pack_start(vseparator,False,False,0)
+                    mainvbox.pack_start(vseparator,False,False,0)"""
         
         if not lock_:
             self._mainbox_.set_border_width(5)
@@ -147,11 +145,12 @@ class Plugin(BasePlugin):
             vheader.pack_start(image,False,False,0)
             vheader.pack_start(label,False,False,0)
             for i in lxde_cc:
-                button = Gtk.Button(i[0])
-                #button.get_style_context().add_class("destructive-action")
-                button.set_size_request(150,40)
-                button.connect("clicked",self.on_button_clicked,i[1])
-                vbox1.pack_start(button,False,False,0)
+                if os.path.isfile(i[1]):
+                    button = Gtk.Button(i[0])
+                    #button.get_style_context().add_class("destructive-action")
+                    button.set_size_request(150,40)
+                    button.connect("clicked",self.on_button_clicked,i[1])
+                    vbox1.pack_start(button,False,False,0)
             
             vseparator = Gtk.Separator()
             vseparator.set_margin_top(10)

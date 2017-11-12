@@ -156,9 +156,15 @@ class AppWindow(Gtk.ApplicationWindow):
                 print("Ignored >> Load {} Fail.".format(plugin))
                 continue
 
-            if priority!=0:
+            if priority==1:
                 try:
                     plg= plugin.Plugin(self,self.row)
+                except:
+                    print("Ignored >> Load {} Fail.".format(module_name))
+                    continue
+            elif priority>1:
+                try:
+                    run_function= plugin.Run
                 except:
                     print("Ignored >> Load {} Fail.".format(module_name))
                     continue
@@ -176,8 +182,10 @@ class AppWindow(Gtk.ApplicationWindow):
             if mainbuttontooltip:
                 b.set_tooltip_markup(mainbuttontooltip)
             b.set_size_request(mainbuttonsizewidth,mainbuttonsizeheight)
-            if priority!=0:
+            if priority==1:
                 b.connect("clicked",self.on_button_clicked2,plg,blockclose)
+            elif priority>1:
+                b.connect("clicked",run_function)
             else:
                 b.connect("clicked",self.on_button_clicked,module_name,blockclose)
             bvb.pack_start(image,False,False,0)
