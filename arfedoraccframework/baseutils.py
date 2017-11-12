@@ -36,7 +36,8 @@ def get_icon_location(iconname):
      
 def get_file_to_run():
     try:
-        filetorun = os.path.join("/tmp",appname+str(int(time.time())))
+        os.makedirs(os.path.join("/tmp",appname),exist_ok=True)
+        filetorun = os.path.join("/tmp",appname,appname+str(int(time.time())))
     except Exception as e:
         print(e)
         return False
