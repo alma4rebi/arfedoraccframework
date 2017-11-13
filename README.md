@@ -12,3 +12,6 @@ chmod 755 install.py
 ./install.py
 
 arfedoracontrolcenter
+
+# وثائق
+https://arfedora.blogspot.com/2017/11/arfedoracontrolcenter.html
