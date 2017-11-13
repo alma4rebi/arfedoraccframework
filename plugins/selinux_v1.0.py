@@ -22,7 +22,7 @@
 #  
 #
 import subprocess
-import time
+import os
 import gi
 gi.require_version("Gtk","3.0")
 from gi.repository import Gtk,GdkPixbuf, Pango
@@ -48,7 +48,7 @@ distro_version       = ["all"]
 mainbuttontooltip    = "Selinux Manager"
 blockclose           = False
 if_true_skip         = False
-if_false_skip        = True
+if_false_skip        = os.path.isfile("/etc/selinux/config")
 if_one_true_skip     = [False]
 if_all_true_skip     = [True,False]
 priority             = 0
