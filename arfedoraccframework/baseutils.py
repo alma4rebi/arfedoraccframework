@@ -34,18 +34,23 @@ def get_icon_location(iconname):
         return iconlocation[0]
     return False
      
-def get_file_to_run():
+def get_file_to_run(write=False,chmod=False,add=""):
     try:
         os.makedirs(os.path.join("/tmp",appname),exist_ok=True)
-        filetorun = os.path.join("/tmp",appname,appname+str(int(time.time())))
+        filetorun = os.path.join("/tmp",appname,appname+add+str(int(time.time())))
+        if write:
+            with open(filetorun,"a") as mf:
+                pass
+        if chmod:
+            subprocess.call("chmod 755 "+filetorun,shell=True)
     except Exception as e:
         print(e)
         return False
     return filetorun
 
-def write_file_to_run(commands):
+def write_file_to_run(commands,add=""):
     try:
-        filetorun = get_file_to_run()
+        filetorun = get_file_to_run(add=add)
         with open(filetorun,"w") as mf:
             for command in commands:
                 mf.write(command+"\n")

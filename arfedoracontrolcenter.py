@@ -133,6 +133,7 @@ class AppWindow(Gtk.ApplicationWindow):
                     hseparator.set_margin_top(30)
                     vmaincategorybox = Gtk.VBox(spacing=3)
                     hh2categorybox = Gtk.HBox(spacing=13)
+                    #hh2categorybox.set_homogeneous (True)
                     
                     h1categorybox = Gtk.HBox()
                     v1categorybox = Gtk.VBox()
