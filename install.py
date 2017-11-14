@@ -39,6 +39,21 @@ else:
     subprocess.call("cp -r plugins /usr/share/"+appname,shell=True)
     subprocess.call("cp -r icons /usr/share/"+appname,shell=True)
 subprocess.call("sudo cp -r arfedoraccframework {}".format(site_packages),shell=True)
-subprocess.call("chmod 755  arfedoracontrolcenter.py",shell=True)
-subprocess.call("sudo cp -r arfedoracontrolcenter.py /usr/bin/arfedoracontrolcenter",shell=True)
+subprocess.call("chmod 755  arfedoracontrolcenter",shell=True)
+subprocess.call("sudo cp -r arfedoracontrolcenter /usr/bin/arfedoracontrolcenter",shell=True)
 subprocess.call("sudo chmod 755  /usr/bin/arfedoracontrolcenter",shell=True)
+to_translate = ["plugins/"+plugin for plugin in os.listdir("plugins") if plugin.endswith(".py")]
+to_translate.append(appname)
+to_translate =" ".join(to_translate)
+subprocess.call("xgettext  --language=Python --keyword=_  -d {} -o po/{}.pot {}".format(appname,appname,to_translate),shell=True)
+
+ts = ["po/"+f for f in os.listdir("po") if  os.path.isfile("po/"+f) and f.endswith(".po")]
+copytolocale = []
+for p in ts:
+    mo = p[0:-3]+".mo"
+    subprocess.call(" msgfmt -o {}  {}".format(mo,p),shell=True)
+    target = "/usr/share/locale/"+os.path.basename(mo)[0:-3]+"/LC_MESSAGES/{}.mo".format(appname)
+    copytolocale.append([mo,target])
+for i in copytolocale:
+    subprocess.call("sudo cp {} {}".format(i[0],i[1]),shell=True)
+

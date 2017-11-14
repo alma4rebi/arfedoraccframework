@@ -27,14 +27,14 @@ import subprocess
 
 desktop=os.getenv("XDG_CURRENT_DESKTOP")
 
-button_label         = "Mate Control Center"
+button_label         = _("Mate Control Center")
 button_image         = "mate_desktop_logo.jpg"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Mate Control Center"
+mainbuttontooltip    = _("Mate Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "MATE" in desktop else False

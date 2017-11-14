@@ -1,0 +1,341 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Yucef Sourani <youssef.m.sourani@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: arfedoracontrolcenter 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-14 16:38+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yucef Sourani <youssef.m.sourani@gmail.com>\n"
+"Language-Team: Arabic <youssef.m.sourani@gmail.com>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: plugins/drive_info_v1.0.py:34 plugins/drive_info_v1.0.py:41
+msgid "Drives Info"
+msgstr "معلومات عن أقراض التخزين"
+
+#: plugins/drive_info_v1.0.py:36 plugins/fixusbafterdd_v1.0.py:37
+#: plugins/getexec_v1.0.py:34
+msgid "Utilities"
+msgstr "أدوات"
+
+#: plugins/drive_info_v1.0.py:37 plugins/cinnamon_control_center_v1.0.py:33
+#: plugins/fixusbafterdd_v1.0.py:38 plugins/example_v1.0.py:33
+#: plugins/lxqt_control_center_v1.0.py:33
+#: plugins/mate_control_center_v1.0.py:33
+#: plugins/lxde_control_center_v1.0.py:35 plugins/kde_control_center_v1.0.py:32
+#: plugins/systemd_plugin_v1.0.py:37 plugins/openbox_control_center_v1.0.py:36
+#: plugins/gnometweaktool_control_center_v1.0.py:35 plugins/selinux_v1.0.py:44
+#: plugins/gnome_shell_control_center_v1.0.py:33 plugins/getexec_v1.0.py:35
+#: plugins/xfce_control_center_v1.0.py:32 plugins/dnfrepos_v1.0.py:36
+#: plugins/hawaii_control_center_v1.0.py:33
+msgid "For Test"
+msgstr "للتجربة"
+
+#: plugins/drive_info_v1.0.py:109
+msgid "<b>Drives Info</b>"
+msgstr "<b>معلومات عن أقراص التخزين</b>"
+
+#: plugins/cinnamon_control_center_v1.0.py:30
+#: plugins/cinnamon_control_center_v1.0.py:37
+msgid "Cinnamon Control Center"
+msgstr "مركز تحكم Cinnamon"
+
+#: plugins/cinnamon_control_center_v1.0.py:32 plugins/example_v1.0.py:32
+#: plugins/lxqt_control_center_v1.0.py:32
+#: plugins/mate_control_center_v1.0.py:32
+#: plugins/lxde_control_center_v1.0.py:34 plugins/kde_control_center_v1.0.py:31
+#: plugins/systemd_plugin_v1.0.py:36 plugins/openbox_control_center_v1.0.py:35
+#: plugins/gnometweaktool_control_center_v1.0.py:34 plugins/selinux_v1.0.py:43
+#: plugins/gnome_shell_control_center_v1.0.py:32
+#: plugins/xfce_control_center_v1.0.py:31 plugins/dnfrepos_v1.0.py:35
+#: plugins/hawaii_control_center_v1.0.py:32
+msgid "System"
+msgstr "خدمات النظام"
+
+#: plugins/fixusbafterdd_v1.0.py:35
+msgid "Fix Flash"
+msgstr "إصلاح الفلاشة"
+
+#: plugins/fixusbafterdd_v1.0.py:42
+msgid "Fix Flash Memory After dd command"
+msgstr "إصلاح الفلاشة بعد تنفيذ امر dd"
+
+#: plugins/fixusbafterdd_v1.0.py:61
+msgid "<b>Fix USB Flash Memory Adter dd Command</b>"
+msgstr "<b>إصلاح الفلاشة بعد تنفيذ امر dd</b>"
+
+#: plugins/fixusbafterdd_v1.0.py:65
+msgid "Run Fix"
+msgstr "تشغيل الإصلاح"
+
+#: plugins/fixusbafterdd_v1.0.py:74
+msgid ""
+"Force\n"
+"Umount"
+msgstr "فصل\nبالقوة"
+
+#: plugins/fixusbafterdd_v1.0.py:81
+msgid "Force Umount"
+msgstr "فصل الفلاشة بالقوة"
+
+#: plugins/fixusbafterdd_v1.0.py:86
+msgid "Refresh"
+msgstr "تحديث"
+
+#: plugins/fixusbafterdd_v1.0.py:132
+msgid ""
+"WARNING !! ALL DATA ON {} WILL BE LOST\n"
+"\n"
+"Are You Sure You Want To Continue ?"
+msgstr ""
+"تحذير !! كل البيانات على {} سيتم فقدانها\n"
+"\n"
+"هل أنت متأكد من أنك تريد المتابعة ؟"
+
+#: plugins/fixusbafterdd_v1.0.py:148
+msgid "Fix Flash Memory {} Sucess."
+msgstr "إصلاح الفلاشة {} تم بنجاح."
+
+#: plugins/fixusbafterdd_v1.0.py:155
+msgid ""
+"\n"
+"\n"
+"حاول تفعيل الفصل بالقوة"
+
+msgstr ""
+
+#: plugins/example_v1.0.py:30
+msgid "Example"
+msgstr "مثال"
+
+#: plugins/example_v1.0.py:37
+msgid "For Testing"
+msgstr "للتجربة"
+
+#: plugins/lxqt_control_center_v1.0.py:30
+#: plugins/lxqt_control_center_v1.0.py:37
+msgid "Lxqt Control Center"
+msgstr "مركز تحكم Lxqt"
+
+#: plugins/mate_control_center_v1.0.py:30
+#: plugins/mate_control_center_v1.0.py:37
+msgid "Mate Control Center"
+msgstr "مركز تحكم Mate"
+
+#: plugins/lxde_control_center_v1.0.py:32
+#: plugins/lxde_control_center_v1.0.py:39
+msgid "Lxde Control Center"
+msgstr "مركز تحكم Lxde"
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Customize Look and Feel"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Default Applications"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Desktop Session Settings"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Display Settings"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Windows Manager Configuration"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:132
+msgid "Input Device Preferences"
+msgstr ""
+
+#: plugins/lxde_control_center_v1.0.py:138
+msgid "<b>Lxde Control Programs</b>"
+msgstr "<b>مركز تحكم Lxde</b>"
+
+#: plugins/kde_control_center_v1.0.py:29 plugins/kde_control_center_v1.0.py:36
+msgid "Plasma Control Center"
+msgstr "مركز تحكم Plasma"
+
+#: plugins/systemd_plugin_v1.0.py:34
+msgid "Service Manager"
+msgstr "إدارة الخدمات"
+
+#: plugins/systemd_plugin_v1.0.py:41
+msgid "Systemd Service Manager"
+msgstr "إدارة خدمات Systemd"
+
+#: plugins/systemd_plugin_v1.0.py:68
+msgid "<b>SystemD Service Manager</b>"
+msgstr "<b>إدارة خدمات SystemD</b>"
+
+#: plugins/systemd_plugin_v1.0.py:97 plugins/systemd_plugin_v1.0.py:98
+msgid "<b>Services Name</b>"
+msgstr "<b>إسم الخدمة</b>"
+
+#: plugins/systemd_plugin_v1.0.py:99 plugins/systemd_plugin_v1.0.py:100
+msgid "<b>Enable/Disable</b>"
+msgstr "<b>تفعيل/إقاف التفعيل</b>"
+
+#: plugins/systemd_plugin_v1.0.py:101 plugins/systemd_plugin_v1.0.py:102
+msgid "<b>Start/Stop</b>"
+msgstr "<b>تشغيل/إقاف التشغيل</b>"
+
+#: plugins/systemd_plugin_v1.0.py:120
+msgid "<b>User Services</b>"
+msgstr "<b>خدمات المستخدم</b>"
+
+#: plugins/systemd_plugin_v1.0.py:162
+msgid "<b>System Services</b>"
+msgstr "<b>خدمات النظام</b>"
+
+#: plugins/openbox_control_center_v1.0.py:33
+#: plugins/openbox_control_center_v1.0.py:40
+msgid "OpenBox Control Center"
+msgstr "مركز تحكم OpenBox"
+
+#: plugins/gnometweaktool_control_center_v1.0.py:32
+#: plugins/gnometweaktool_control_center_v1.0.py:39
+msgid "Gnome Tweak Tool"
+msgstr ""
+
+#: plugins/selinux_v1.0.py:41 plugins/selinux_v1.0.py:48
+msgid "Selinux Manager"
+msgstr "Selinux إدارة"
+
+#: plugins/selinux_v1.0.py:82
+msgid "Selinux Is Disabled Nothing To Do"
+msgstr ""
+
+#: plugins/selinux_v1.0.py:94
+msgid "<b>Selinux Manager</b>"
+msgstr "<b>Selinux إدارة</b>"
+
+#: plugins/selinux_v1.0.py:115
+msgid "<b>Set And Apply Selinux Mode</b>"
+msgstr "<b>تغير وتفعيل سياسة Selinux</b>"
+
+#: plugins/selinux_v1.0.py:121
+msgid "Enforcing"
+msgstr "فرض بالقوة"
+
+#: plugins/selinux_v1.0.py:125
+msgid "Permissive"
+msgstr "متسامح"
+
+#: plugins/gnome_shell_control_center_v1.0.py:30
+#: plugins/gnome_shell_control_center_v1.0.py:37
+msgid "Gnome Control Center"
+msgstr "مركز تحكم Gnome"
+
+#: plugins/getexec_v1.0.py:32
+msgid "Get Exec"
+msgstr ""
+
+#: plugins/getexec_v1.0.py:39
+msgid "Get Exec From Desktop Entry"
+msgstr ""
+
+#: plugins/getexec_v1.0.py:50
+msgid "Not Available"
+msgstr ""
+
+#: plugins/getexec_v1.0.py:139
+msgid "<b>Get Exec</b>"
+msgstr ""
+
+#: plugins/getexec_v1.0.py:163
+msgid "Enter Program Name..."
+msgstr "أدخل إسم البرنامج"
+
+#: plugins/getexec_v1.0.py:169
+msgid "Get Command with  argv"
+msgstr ""
+
+#: plugins/getexec_v1.0.py:173
+msgid "Name : "
+msgstr "الإسم : "
+
+#: plugins/getexec_v1.0.py:174
+msgid "Command : "
+msgstr "الأمر : "
+
+#: plugins/getexec_v1.0.py:175
+msgid "Path : "
+msgstr "المسار : "
+
+#: plugins/getexec_v1.0.py:176
+msgid "File : "
+msgstr "الملف : "
+
+#: plugins/getexec_v1.0.py:188
+msgid "Get"
+msgstr "شغل"
+
+#: plugins/getexec_v1.0.py:227 plugins/getexec_v1.0.py:243
+msgid "Name : {}"
+msgstr "الإسم : {}"
+
+#: plugins/getexec_v1.0.py:230 plugins/getexec_v1.0.py:232
+#: plugins/getexec_v1.0.py:235 plugins/getexec_v1.0.py:237
+msgid "Command : {}"
+msgstr "الأمر : {}"
+
+#: plugins/getexec_v1.0.py:238
+msgid "Path : {}"
+msgstr "المسار : {}"
+
+#: plugins/getexec_v1.0.py:239
+msgid "File : {}"
+msgstr "الملف : {}"
+
+#: plugins/getexec_v1.0.py:244 plugins/getexec_v1.0.py:249
+msgid "Command : Unknown"
+msgstr "الأمر : مجهول"
+
+#: plugins/getexec_v1.0.py:245 plugins/getexec_v1.0.py:250
+msgid "Path : Unknown"
+msgstr "المسار : مجهول"
+
+#: plugins/getexec_v1.0.py:246 plugins/getexec_v1.0.py:251
+msgid "File : Unknown"
+msgstr "الملف : مجهول"
+
+#: plugins/getexec_v1.0.py:248
+msgid "Name Unknown"
+msgstr "الإسم مجهول"
+
+#: plugins/xfce_control_center_v1.0.py:29
+#: plugins/xfce_control_center_v1.0.py:36
+msgid "XFCE Control Center"
+msgstr "مركز تحكم XFCE"
+
+#: plugins/dnfrepos_v1.0.py:33
+msgid "Repos Manager"
+msgstr "إدارة المستودعات"
+
+#: plugins/dnfrepos_v1.0.py:40
+msgid "Dnf Repos Manager"
+msgstr "إدارة مستودعات Dnf"
+
+#: plugins/dnfrepos_v1.0.py:64
+msgid "<b>Dnf Repos Manager</b>"
+msgstr "<b>إدارة مستودعات Dnf</b>"
+
+#: plugins/hawaii_control_center_v1.0.py:30
+msgid "Hawaii Center"
+msgstr "مركز تحكم Hawaii"
+
+#: plugins/hawaii_control_center_v1.0.py:37
+msgid "Hawaii Control Center"
+msgstr "مركز تحكم Hawaii"
+

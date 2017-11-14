@@ -31,14 +31,14 @@ import arfedoraccframework.basesystemd as systemd
 import time
 
 
-button_label         = "Service Manager"
+button_label         = _("Service Manager")
 button_image         = "tux_images.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Systemd Service Manager"
+mainbuttontooltip    = _("Systemd Service Manager")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True
@@ -65,7 +65,7 @@ class Plugin(BasePlugin):
         headerbox    = Gtk.VBox(spacing=6)
         headerpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(headericon,100,100)
         headerimage  = Gtk.Image.new_from_pixbuf(headerpixbuf)
-        headerlabel  = Gtk.Label("<b>SystemD Service Manager</b>",use_markup=True)
+        headerlabel  = Gtk.Label(_("<b>SystemD Service Manager</b>"),use_markup=True)
         headerlabel.set_line_wrap(True)
         headerlabel.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         headerlabel.set_max_width_chars(13)
@@ -94,12 +94,12 @@ class Plugin(BasePlugin):
         user_sthbox = Gtk.HBox()
         system_sthbox = Gtk.HBox()
         
-        usertitle = Gtk.Label("<b>Services Name</b>",use_markup=True)
-        systemtitle = Gtk.Label("<b>Services Name</b>",use_markup=True)
-        user_ed = Gtk.Label("<b>Enable/Disable</b>",use_markup=True)
-        system_ed = Gtk.Label("<b>Enable/Disable</b>",use_markup=True)
-        user_st = Gtk.Label("<b>Start/Stop</b>",use_markup=True)
-        system_st = Gtk.Label("<b>Start/Stop</b>",use_markup=True)
+        usertitle = Gtk.Label(_("<b>Services Name</b>"),use_markup=True)
+        systemtitle = Gtk.Label(_("<b>Services Name</b>"),use_markup=True)
+        user_ed = Gtk.Label(_("<b>Enable/Disable</b>"),use_markup=True)
+        system_ed = Gtk.Label(_("<b>Enable/Disable</b>"),use_markup=True)
+        user_st = Gtk.Label(_("<b>Start/Stop</b>"),use_markup=True)
+        system_st = Gtk.Label(_("<b>Start/Stop</b>"),use_markup=True)
 
         usertitlehbox.pack_start(usertitle,False,False,0)
         systemtitlehbox.pack_start(systemtitle,False,False,0)
@@ -117,7 +117,7 @@ class Plugin(BasePlugin):
         mainswitchvbox2_.pack_start(system_sthbox,False,False,0)
         
         if len(self.user_enabled_disabled_service.items())!=0:
-            userlabel = Gtk.Label("<b>User Services</b>",use_markup=True)
+            userlabel = Gtk.Label(_("<b>User Services</b>"),use_markup=True)
             uservseparator = Gtk.Separator()
             uservseparator.set_margin_top(30)
             self.mainvbox.pack_start(uservseparator,False,False,0)
@@ -159,7 +159,7 @@ class Plugin(BasePlugin):
             self.mainvbox.pack_start(mainhbox,False,False,0)
 
         if len(self.system_enabled_disabled_service.items())!=0:
-            systemlabel = Gtk.Label("<b>System Services</b>",use_markup=True)
+            systemlabel = Gtk.Label(_("<b>System Services</b>"),use_markup=True)
             systemvseparator = Gtk.Separator()
             systemvseparator.set_margin_top(30)
             self.mainvbox.pack_start(systemvseparator,False,False,0)

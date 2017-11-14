@@ -27,14 +27,14 @@ import subprocess
 
 desktop=os.getenv("XDG_CURRENT_DESKTOP")
 
-button_label         = "Gnome Control Center"
+button_label         = _("Gnome Control Center")
 button_image         = "gnome-logo-icon-23471.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Gnome Control Center"
+mainbuttontooltip    = _("Gnome Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "GNOME" in desktop else False

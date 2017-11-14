@@ -38,14 +38,14 @@ def get_selinux_mode():
                 return line.split("=",1)[1].strip()
     return False
     
-button_label         = "Selinux Manager"
+button_label         = _("Selinux Manager")
 button_image         = "selinux-penguin-new_medium.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Selinux Manager"
+mainbuttontooltip    = _("Selinux Manager")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = os.path.isfile("/etc/selinux/config")
@@ -79,7 +79,7 @@ class Plugin(BasePlugin):
         
     def gui(self):
         if get_selinux_mode()=="disabled":
-            l = Gtk.Label("Selinux Is Disabled Nothing To Do")
+            l = Gtk.Label(_("Selinux Is Disabled Nothing To Do"))
             self._mainbox_.pack_start(l,True,True,0)
         else:
             self.mainvbox = Gtk.VBox(spacing=20)
@@ -91,7 +91,7 @@ class Plugin(BasePlugin):
             headerbox    = Gtk.VBox(spacing=6)
             headerpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(headericon,100,100)
             headerimage  = Gtk.Image.new_from_pixbuf(headerpixbuf)
-            headerlabel  = Gtk.Label("<b>Selinux Manager</b>",use_markup=True)
+            headerlabel  = Gtk.Label(_("<b>Selinux Manager</b>"),use_markup=True)
             headerlabel.set_line_wrap(True)
             headerlabel.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
             headerlabel.set_max_width_chars(13)
@@ -112,17 +112,17 @@ class Plugin(BasePlugin):
             pixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(logo__,100,100)
             image  = Gtk.Image.new_from_pixbuf(pixbuf)
             
-            label  = Gtk.Label("<b>Set And Apply Selinux Mode</b>",use_markup=True)
+            label  = Gtk.Label(_("<b>Set And Apply Selinux Mode</b>"),use_markup=True)
             #label.set_line_wrap(True)
             label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
             label.set_justify(Gtk.Justification.CENTER)
             
             
-            self.button1 = Gtk.RadioButton.new_with_label_from_widget(None, "Enforcing")
+            self.button1 = Gtk.RadioButton.new_with_label_from_widget(None, _("Enforcing"))
 
 
             self.button2 = Gtk.RadioButton.new_from_widget(self.button1)
-            self.button2.set_label("Permissive")
+            self.button2.set_label(_("Permissive"))
             if get_selinux_mode()=="enforcing":
                 self.button1.set_active(True)
             else:

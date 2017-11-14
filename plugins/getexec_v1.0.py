@@ -29,14 +29,14 @@ from arfedoraccframework.baseplugin import BasePlugin
 from arfedoraccframework.baseutils import get_icon_location
 
 
-button_label         = "Get Exec"
+button_label         = _("Get Exec")
 button_image         = "exec-icon.png"
-category             = "Utilities"
-title                = "For Test"
+category             = _("Utilities")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Get Exec From Desktop Entry"
+mainbuttontooltip    = _("Get Exec From Desktop Entry")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True
@@ -47,7 +47,7 @@ priority             = 0
 
 def get_bin_path(command):
     path = [p for p in os.environ["PATH"].split(":") if os.path.isdir(p)]
-    result = "Not Available"
+    result = _("Not Available")
     for location in path:
         try:
             for dirname,dirs,files in os.walk(location):
@@ -136,7 +136,7 @@ class Plugin(BasePlugin):
         headerbox    = Gtk.VBox(spacing=6)
         headerpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(headericon,100,100)
         headerimage  = Gtk.Image.new_from_pixbuf(headerpixbuf)
-        headerlabel  = Gtk.Label("<b>Get Exec</b>",use_markup=True)
+        headerlabel  = Gtk.Label(_("<b>Get Exec</b>"),use_markup=True)
         headerlabel.set_line_wrap(True)
         headerlabel.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         headerlabel.set_max_width_chars(13)
@@ -160,20 +160,20 @@ class Plugin(BasePlugin):
         hbox0 = Gtk.HBox(spacing=10)
         
         self.filenameentry = Gtk.Entry()
-        self.filenameentry.set_placeholder_text("Enter Program Name...")
+        self.filenameentry.set_placeholder_text(_("Enter Program Name..."))
         self.filenameentry.set_max_length(63)
         
         argv_check_vbox = Gtk.VBox(spacing=2)
         argv_label= Gtk.Label("argv")
         self.argv_check = Gtk.CheckButton()
-        self.argv_check.set_tooltip_text("Get Command with  argv")
+        self.argv_check.set_tooltip_text(_("Get Command with  argv"))
         self.argv_check.set_active(True) 
 
 
-        self.label1 = Gtk.Label("Name : ")
-        self.label2 = Gtk.Label("Command : ")
-        self.label3 = Gtk.Label("Path : ")
-        self.label0 = Gtk.Label("File : ")
+        self.label1 = Gtk.Label(_("Name : "))
+        self.label2 = Gtk.Label(_("Command : "))
+        self.label3 = Gtk.Label(_("Path : "))
+        self.label0 = Gtk.Label(_("File : "))
         
         self.label1.set_line_wrap(True)
         self.label2.set_line_wrap(True)
@@ -185,7 +185,7 @@ class Plugin(BasePlugin):
         self.label0.set_selectable(True)
         
         button_vbox = Gtk.VBox(spacing=5)
-        run_button = Gtk.Button("Get")
+        run_button = Gtk.Button(_("Get"))
         run_button.connect("clicked",self.on_run_button_clicked)
         
         argv_check_vbox.pack_start(argv_label,True,True,0)
@@ -224,30 +224,30 @@ class Plugin(BasePlugin):
         if  name:
             result = read_all_desktop_entry_files(name)
             if len(result) != 0:
-                self.label1.set_label("Name : {}".format(result[0][0]))
+                self.label1.set_label(_("Name : {}").format(result[0][0]))
                 if len(result[0][1])>1:
                     if self.argv_check.get_active() and len(result[0][1])>1:
-                        self.label2.set_label("Command : {}".format(result[0][1][0]+" && "+" && ".join(l for i in result[0][1][1:] for l in i)))
+                        self.label2.set_label(_("Command : {}").format(result[0][1][0]+" && "+" && ".join(l for i in result[0][1][1:] for l in i)))
                     else:
-                        self.label2.set_label("Command : {}".format(result[0][1][0]+" && "+" && ".join(l.split()[0] for i in result[0][1][1:] for l in i)))
+                        self.label2.set_label(_("Command : {}").format(result[0][1][0]+" && "+" && ".join(l.split()[0] for i in result[0][1][1:] for l in i)))
                 else:
                     if self.argv_check.get_active():
-                        self.label2.set_label("Command : {}".format(result[0][1][0]))
+                        self.label2.set_label(_("Command : {}").format(result[0][1][0]))
                     else:
-                        self.label2.set_label("Command : {}".format(result[0][1][0].split()[0]))
-                self.label3.set_label("Path : {}".format(result[0][2]))
-                self.label0.set_label("File : {}".format(result[0][3]))
+                        self.label2.set_label(_("Command : {}").format(result[0][1][0].split()[0]))
+                self.label3.set_label(_("Path : {}").format(result[0][2]))
+                self.label0.set_label(_("File : {}").format(result[0][3]))
 
                     
             else:
-                self.label1.set_label("Name {}".format(name))
-                self.label2.set_label("Command : Unknown")
-                self.label3.set_label("Path : Unknown")
-                self.label0.set_label("File : Unknown")   
+                self.label1.set_label(_("Name : {}").format(name))
+                self.label2.set_label(_("Command : Unknown"))
+                self.label3.set_label(_("Path : Unknown"))
+                self.label0.set_label(_("File : Unknown"))
         else:
-            self.label1.set_label("Name Unknown".format(name))
-            self.label2.set_label("Command : Unknown")
-            self.label3.set_label("Path : Unknown")
-            self.label0.set_label("File : Unknown")
+            self.label1.set_label(_("Name Unknown"))
+            self.label2.set_label(_("Command : Unknown"))
+            self.label3.set_label(_("Path : Unknown"))
+            self.label0.set_label(_("File : Unknown"))
 
         

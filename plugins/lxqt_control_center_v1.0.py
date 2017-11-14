@@ -27,14 +27,14 @@ import subprocess
 
 desktop=os.getenv("XDG_CURRENT_DESKTOP")
 
-button_label         = "Lxqt Control Center"
+button_label         = _("Lxqt Control Center")
 button_image         = "lxqt_logo_by_i_sty-d7rmlxd.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Lxqt Control Center"
+mainbuttontooltip    = _("Lxqt Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "X-LXQt" in desktop else False

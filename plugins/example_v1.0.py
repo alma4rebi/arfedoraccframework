@@ -27,14 +27,14 @@ from gi.repository import Gtk
 from arfedoraccframework.baseplugin import BasePlugin
 from arfedoraccframework.baseutils import get_icon_location
 
-button_label         = "Example"
+button_label         = _("Example")
 button_image         = "tools_settings_tool_preferences-512.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "For Testing"
+mainbuttontooltip    = _("For Testing")
 blockclose           = True
 if_true_skip         = False
 if_false_skip        = True

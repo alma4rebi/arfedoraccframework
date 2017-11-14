@@ -21,6 +21,7 @@
 #
 import os
 import sys
+import gettext
 from  arfedoraccframework import plugins_loader
 from  arfedoraccframework.baseutils import arch, get_distro_name, get_distro_version
 from arfedoraccframework.appinformation  import authors_, version_, copyright_, comments_, website_,icon_, translators_, \
@@ -29,7 +30,7 @@ import gi
 gi.require_version("Gtk","3.0")
 from gi.repository import Gtk,Gio,GdkPixbuf,GLib,Pango
 
-
+gettext.install(appname,"/usr/share/locale")
 
 
 

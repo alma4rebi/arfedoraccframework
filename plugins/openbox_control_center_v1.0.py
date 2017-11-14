@@ -30,14 +30,14 @@ if desktop=="":
     if os.getenv("DESKTOP_SESSION")=="/usr/share/xsessions/openbox":
         desktop = "OpenBox"
 
-button_label         = "OpenBox Control Center"
+button_label         = _("OpenBox Control Center")
 button_image         = "Openbox-logo.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "OpenBox Control Center"
+mainbuttontooltip    = _("OpenBox Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "OpenBox" in desktop else False

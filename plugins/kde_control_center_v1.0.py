@@ -26,14 +26,14 @@ import subprocess
 
 desktop=os.getenv("XDG_CURRENT_DESKTOP")
 
-button_label         = "Plasma Control Center"
+button_label         = _("Plasma Control Center")
 button_image         = "11949942481641741323about_kde.svg.hi.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Plasma Control Center"
+mainbuttontooltip    = _("Plasma Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "KDE" in desktop else False

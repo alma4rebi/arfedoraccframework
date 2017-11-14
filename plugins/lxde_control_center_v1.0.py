@@ -29,14 +29,14 @@ from arfedoraccframework.baseutils import get_icon_location
 
 
 
-button_label         = "Lxde Control Center"
+button_label         = _("Lxde Control Center")
 button_image         = "cropped-lxde-icon.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Lxde Control Center"
+mainbuttontooltip    = _("Lxde Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = all([ os.path.isfile("/usr/bin/lxappearance") ,os.path.isfile("/usr/bin/lxsession-default-apps"),os.path.isfile("/usr/bin/lxsession-edit" ),os.path.isfile("/usr/bin/lxrandr"),os.path.isfile("/usr/bin/lxinput")])
@@ -129,13 +129,13 @@ class Plugin(BasePlugin):
         
         if not lock_:
             self._mainbox_.set_border_width(5)
-            lxde_cc=[ ["Customize Look and Feel","/usr/bin/lxappearance"] ,["Default Applications","/usr/bin/lxsession-default-apps"],["Desktop Session Settings","/usr/bin/lxsession-edit"] ,["Display Settings","/usr/bin/lxrandr"],["Windows Manager Configuration","/usr/bin/obconf"],["Input Device Preferences","/usr/bin/lxinput"]]
+            lxde_cc=[ [_("Customize Look and Feel"),"/usr/bin/lxappearance"] ,[_("Default Applications"),"/usr/bin/lxsession-default-apps"],[_("Desktop Session Settings"),"/usr/bin/lxsession-edit"] ,[_("Display Settings"),"/usr/bin/lxrandr"],[_("Windows Manager Configuration"),"/usr/bin/obconf"],[_("Input Device Preferences"),"/usr/bin/lxinput"]]
             lxde_logo = get_icon_location("cropped-lxde-icon.png")
             hbox1 = Gtk.HBox(spacing=10)
             vbox1 = Gtk.VBox(spacing=20)
             vheader = Gtk.VBox(spacing=3)
             vbox1.pack_start(vheader,False,False,0)
-            label = Gtk.Label("<b>Lxde Control Programs</b>",use_markup=True)
+            label = Gtk.Label(_("<b>Lxde Control Programs</b>"),use_markup=True)
             label.set_line_wrap(True)
             label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
             label.set_max_width_chars(13)

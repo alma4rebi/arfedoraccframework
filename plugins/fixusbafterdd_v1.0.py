@@ -32,14 +32,14 @@ from arfedoraccframework.widgetsutils import Yes_Or_No, NInfo
 import time
 import threading
 
-button_label         = "Fix Flash"
+button_label         = _("Fix Flash")
 button_image         = "vector_66_01-512.png"
-category             = "Utilities"
-title                = "For Test"
+category             = _("Utilities")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Fix Flash Memory After dd command"
+mainbuttontooltip    = _("Fix Flash Memory After dd command")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True
@@ -58,11 +58,11 @@ class Plugin(BasePlugin):
         vbox2 = Gtk.VBox(spacing=20)
         self._mainbox_.pack_start(mainvbox,False,False,0)
         self._mainbox_.set_border_width(100)
-        label = Gtk.Label("<b>Fix USB Flash Memory Adter dd Command</b>",use_markup=True)
+        label = Gtk.Label(_("<b>Fix USB Flash Memory Adter dd Command</b>"),use_markup=True)
         label.set_line_wrap(True)
         label.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         label.set_max_width_chars(13)
-        self.fixbutton = Gtk.Button("Run Fix")
+        self.fixbutton = Gtk.Button(_("Run Fix"))
         self.fixbutton.connect("clicked",self.on_fixhbutton_clicked)
         iconlocation = get_icon_location("flash-chip.png")
         pixbuf=GdkPixbuf.Pixbuf.new_from_file_at_size(iconlocation,100,100)
@@ -71,19 +71,19 @@ class Plugin(BasePlugin):
         self.spinner = Gtk.Spinner()
         
         hboxforcecheckbutton = Gtk.HBox(spacing=3)
-        labelforcecheckbutton = Gtk.Label("Force\nUmount")
+        labelforcecheckbutton = Gtk.Label(_("Force\nUmount"))
         labelforcecheckbutton.set_line_wrap(True)
         labelforcecheckbutton.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         labelforcecheckbutton.set_max_width_chars(13)
         labelforcecheckbutton.set_justify(Gtk.Justification.CENTER)
         self.forcecheckbutton = Gtk.CheckButton()
         self.forcecheckbutton.set_active(False)
-        self.forcecheckbutton.set_tooltip_text("Force Umount")
+        self.forcecheckbutton.set_tooltip_text(_("Force Umount"))
         hboxforcecheckbutton.pack_start(labelforcecheckbutton,False,False,0)
         hboxforcecheckbutton.pack_start(self.forcecheckbutton,False,False,0)
         
         combobox = Gtk.HBox(spacing=10)
-        refreshbutton = Gtk.Button("Refresh")
+        refreshbutton = Gtk.Button(_("Refresh"))
         refreshbutton.connect("clicked",self.on_refreshbutton_clicked)
         self.combo = Gtk.ComboBoxText()
         self.on_refreshbutton_clicked()
@@ -129,7 +129,7 @@ class Plugin(BasePlugin):
         filetorun = write_file_to_run(commands)
         if not filetorun:
             return
-        yrn = Yes_Or_No("WARNING !! ALL DATA ON {} WILL BE LOST\n\nAre You Sure You Want To Continue ?".format(drive),self._parent_)
+        yrn = Yes_Or_No(_("WARNING !! ALL DATA ON {} WILL BE LOST\n\nAre You Sure You Want To Continue ?").format(drive),self._parent_)
         if not yrn.check():
             return 
         self._parent_.set_sensitive(False)
@@ -145,14 +145,14 @@ class Plugin(BasePlugin):
         GLib.idle_add(self._parent_.set_sensitive,True)
         if out.strip():
             GLib.idle_add(self.spinner.stop)
-            return GLib.idle_add(self.info_,"Fix Flash Memory {} Sucess.".format(drive))
+            return GLib.idle_add(self.info_,_("Fix Flash Memory {} Sucess.").format(drive))
         else :
             GLib.idle_add(self.spinner.stop)
             err = err.decode("utf-8").strip()
             if err=="Error executing command as another user: Request dismissed":
                 return
             if not self.forcecheckbutton.get_active():
-                return GLib.idle_add(self.info_,err+"\n\n"+"Try Enable Froce Unmout")
+                return GLib.idle_add(self.info_,_(err+"\n\n"+"Try Enable Froce Unmout"))
             else:
                 return GLib.idle_add(self.info_,err)
 

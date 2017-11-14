@@ -29,14 +29,14 @@ desktop=os.getenv("XDG_CURRENT_DESKTOP")
 if os.path.isfile("/usr/bin/gnome-tweak-tool") and "GNOME" in desktop:
     desktop = "GNOMETWEAKTOOL"
 
-button_label         = "Gnome Tweak Tool"
+button_label         = _("Gnome Tweak Tool")
 button_image         = "gnome_tweak_tool_22409.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Gnome Tweak Tool"
+mainbuttontooltip    = _("Gnome Tweak Tool")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "GNOMETWEAKTOOL" in desktop else False

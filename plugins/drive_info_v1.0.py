@@ -31,14 +31,14 @@ from arfedoraccframework.baseutils import get_icon_location
 
 
 
-button_label         = "Drives Info"
+button_label         = _("Drives Info")
 button_image         = "hdd.png"
-category             = "Utilities"
-title                = "For Test"
+category             = _("Utilities")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Drives Info"
+mainbuttontooltip    = _("Drives Info")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True
@@ -106,7 +106,7 @@ class Plugin(BasePlugin):
         headerbox    = Gtk.VBox(spacing=6)
         headerpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(headericon,100,100)
         headerimage  = Gtk.Image.new_from_pixbuf(headerpixbuf)
-        headerlabel  = Gtk.Label("<b>Drives Info</b>",use_markup=True)
+        headerlabel  = Gtk.Label(_("<b>Drives Info</b>"),use_markup=True)
         headerlabel.set_line_wrap(True)
         headerlabel.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         headerlabel.set_max_width_chars(13)

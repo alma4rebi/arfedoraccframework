@@ -27,14 +27,14 @@ import subprocess
 
 desktop=os.getenv("XDG_CURRENT_DESKTOP")
 
-button_label         = "Cinnamon Control Center"
+button_label         = _("Cinnamon Control Center")
 button_image         = "mintlogo-kde.svg"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Cinnamon Control Center"
+mainbuttontooltip    = _("Cinnamon Control Center")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = True if "X-Cinnamon" in desktop else False

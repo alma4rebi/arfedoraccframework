@@ -30,14 +30,14 @@ from arfedoraccframework.baseutils import get_icon_location
 import time
 
 
-button_label         = "Repos Manager"
+button_label         = _("Repos Manager")
 button_image         = "Antu_distributor-logo-fedora.svg.png"
-category             = "System"
-title                = "For Test"
+category             = _("System")
+title                = _("For Test")
 arch                 = ["all"]
 distro_name          = ["all"]
 distro_version       = ["all"]
-mainbuttontooltip    = "Dnf Repos Manager"
+mainbuttontooltip    = _("Dnf Repos Manager")
 blockclose           = False
 if_true_skip         = False
 if_false_skip        = os.path.isfile("/usr/bin/dnf")
@@ -61,7 +61,7 @@ class Plugin(BasePlugin):
         headerbox    = Gtk.VBox(spacing=6)
         headerpixbuf = GdkPixbuf.Pixbuf.new_from_file_at_size(headericon,100,100)
         headerimage  = Gtk.Image.new_from_pixbuf(headerpixbuf)
-        headerlabel  = Gtk.Label("<b>Dnf Repos Manager</b>",use_markup=True)
+        headerlabel  = Gtk.Label(_("<b>Dnf Repos Manager</b>"),use_markup=True)
         headerlabel.set_line_wrap(True)
         headerlabel.set_line_wrap_mode(Pango.WrapMode.WORD_CHAR )
         headerlabel.set_max_width_chars(13)
